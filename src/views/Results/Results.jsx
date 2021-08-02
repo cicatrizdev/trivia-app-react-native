@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { List, Button } from 'react-native-paper';
 import { clearTriviaState } from '../../store/ducks/trivia';
@@ -18,7 +18,7 @@ const Results = () => {
     navigation.navigate('Home');
   };
 
-  responses.map((response) => (response.isCorrect ? totalScore++ : null));
+  responses.map((response) => (response.isCorrect ? (totalScore += 1) : null));
 
   const renderResults = ({ item }) => (
     <List.Item
