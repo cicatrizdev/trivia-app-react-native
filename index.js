@@ -1,9 +1,14 @@
 import 'react-native-gesture-handler';
 import { registerRootComponent } from 'expo';
+import React from 'react';
+import { Provider } from 'react-redux';
+import Routes from './src/routes';
+import store from './src/store';
 
-import App from './App';
+const TriviaApp = () => (
+  <Provider store={store}>
+    <Routes />
+  </Provider>
+);
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+registerRootComponent(TriviaApp);
